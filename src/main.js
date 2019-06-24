@@ -55,6 +55,7 @@ var cards = [
       $('.show-secret-card').toggle('active');
       $('.show-selected-card').toggle('active');
       $('.cards').toggle('active');
+
     // this function never gets called... so answer is never set
     // and then it's never compared to make the score go up
     // espQuiz.makeSelection();

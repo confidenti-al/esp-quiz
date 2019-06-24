@@ -27,61 +27,7 @@ class ESPquiz{
   };
   
   // makeSelection() {
-    
-  //   //CIRCLE
-  //   document.getElementById('circle').onclick = function () {
-  //     answer = this.id;
-  //     console.log(`${this.id} button was clicked`);
-  //     console.log('------------------');
-  //     console.log(`Answer value: ${answer}`);
-  //     let flipString = (`<img src="${this > img.src}" alt="${this > img.id}">`);
-  //     $('.show-selected-card').html(flipString);
-  //     console.log(flipString);
-  //   };
-    
-  //   // PLUS
-  //   document.getElementById('plus').onclick = function () {
-  //     answer = this.id;
-  //     console.log(`${this.id} button was clicked`);
-  //     console.log('------------------');
-  //     console.log(`Answer value: ${answer}`);
-  //   };
-    
-  //   // WAVES
-  //   document.getElementById('waves').onclick = function () {
-  //     answer = this.id;
-  //     console.log(`${this.id} button was clicked`);
-  //     console.log('------------------');
-  //     console.log(`Answer value: ${answer}`);
-  //   };
-    
-  //   // SQUARE
-  //   document.getElementById('square').onclick = function () {
-  //     answer = this.id;
-  //     console.log(`${this.id} button was clicked`);
-  //     console.log('------------------');
-  //     console.log(`Answer value: ${answer}`);
-  //   };
-    
-  //   // STAR
-  //   document.getElementById('star').onclick = function () {
-  //     answer = this.id;
-  //     console.log(`${this.id} button was clicked`);
-  //     console.log('------------------');
-  //     console.log(`Answer value: ${answer}`);
-  //   };
-  //   // return answer;
-  //   $('.cards').toggle('active');
-    
-    
-  //   $('.show-secret-card').toggle('active');
-  //   $('.show-selected-card').toggle('active');
-    
-  //   // flip card
-  //   // let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
-  //   // $('.show-selected-card').html(htmlString);
-  //   // end flip card
-    
+    // got moved to the main.js file
   // };
 
   getNextCard() {
@@ -129,6 +75,7 @@ class ESPquiz{
     };
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
+    
     this.gameOver();
   };
   
