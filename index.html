@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ESP Quiz</title>
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Days+One|Libre+Baskerville|Monoton|Orbitron&display=swap" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="flex-container">
+    <!-- header logo -->
+    <div class="flex-center score">
+      <h1>SCORE: <span class="theScore">00</span></h1>
+    </div>
+    <!-- start game button-->
+    <div class="flex-center">
+      <div id="new-game">
+        <button id="play-button" class="active">PLAY</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- random cards display area -->
+  <div class="flex-next">
+    <div class="show-selected-card active">
+      <img src="images/square.png" alt="Select a Card Below">
+    </div>
+    <div class="show-secret-card active ignore">
+      <button id="check" class="btn check-answer active">Check &#9658;</button> 
+    </div>
+    <div id="secret-card" class="secret-card">
+      <img src="images/ironhack-deck.png" alt="">
+    </div>
+  </div>
+  
+  <!-- answer cards display area -->
+  <div class="flex-center">
+    <button class="btn selection active">
+      <img id="circle" class="cards" src="images/circle.png">
+    </button>
+    <button class="btn selection active">
+      <img id="plus" class="cards" src="images/plus.png">
+    </button>
+    <button class="btn selection active">
+      <img id="waves" class="cards" src="images/waves.png">
+    </button>
+    <button class="btn selection active">
+      <img id="square" class="cards" src="images/square.png">
+    </button>
+    <button class="btn selection active">
+      <img id="star" class="cards" src="images/star.png">
+    </button>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="src/main.js"></script>
+  <script type="text/javascript" src="src/esp.js"></script>
+  
+  <!-- start stats button
+  <div class="flex-center stats">
+      <img src="images/stats.png" alt="">
+  </div> -->
+</body>
+</html>
