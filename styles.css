@@ -75,6 +75,20 @@ body {
   letter-spacing: .2em;
 }
 
+.get-next {
+  border: 3px solid white;
+  box-shadow: 0;
+  background-color: #08274a;
+  color: #32c3ff;
+  padding: 10px 10px 10px 20px;
+  margin: 200px 40px 20px 0;
+  font-size: 40px;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bolder;
+  letter-spacing: .2em;
+}
+
 .show-selected-card {
   background-color: white;
   border: 3px solid white;
@@ -84,14 +98,9 @@ body {
   padding: 4px 8px 0 4px;
 }
 
-/* .show-secret-card {
-  background-color: white;
-  border: 3px solid white;
-  border-radius: 15px;
-  margin: 100px auto;
-  width: 186px;
-  padding: 4px 8px 0 4px;
-} */
+.show-secret-card {
+  /* just a placeholder */  
+}
 
 #secret-card {
   background-color: white;

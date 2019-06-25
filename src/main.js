@@ -42,6 +42,8 @@ var cards = [
     espQuiz.startGame();
     espQuiz.randomizeCards();
     
+    // The below should be espQuiz.makeSelection();
+    // and should be in the esp.js file
   $('.selection').click(function(){
     console.log("Selection has been made")
     
@@ -50,19 +52,27 @@ var cards = [
       
       let flipString = (`<img src="images/${answer}.png" alt="${answer}">`);
       $('.show-selected-card').html(flipString);
-      console.log(flipString);
+      console.log(`${flipString} has been flipped`);
 
-      $('.show-secret-card').toggle('active');
+      $('.show-secret-card').toggle('active');      
+      console.log('show-secret-card has been toggled');
+
       $('.show-selected-card').toggle('active');
-      $('.cards').toggle('active');
+      console.log('show-selected-card has been toggled');
 
-    // this function never gets called... so answer is never set
-    // and then it's never compared to make the score go up
-    // espQuiz.makeSelection();
-  });
+      $('.cards').toggle('active');
+      console.log('Cards have been toggled');
+    });
+    // end where makeSelection(); should end
 
   $('.show-secret-card').click(function(){
-    espQuiz.getNextCard();
+    espQuiz.checkAnswer();
+  });
+
+    // this is where the listener for the get-next button should trigger
+    // hiding the big cards and showing the selection cards buttons
+  $('.get-next').click(function(){
+    espQuiz.makeSelection();
   });
 
 });

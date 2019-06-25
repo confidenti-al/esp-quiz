@@ -2,8 +2,7 @@ class ESPquiz{
   constructor(cards){
     this.cards = cards;
     this.secretCards = [];
-    this.answer = '';
-    // let secretCard;
+    // this.answer = '';
   };
   
   startGame() {
@@ -26,10 +25,10 @@ class ESPquiz{
   };
   
   // makeSelection() {
-    // got moved to the main.js file
+    // got moved to the main.js file, but should be here
   // };
 
-  getNextCard() {
+  checkAnswer() {
     let index = Math.floor(Math.random()*this.cards.length);
     let secretCard = this.cards[index];
     console.log(this);
@@ -41,50 +40,50 @@ class ESPquiz{
     turns++;
     console.log(`# turns played: ${turns}`);
 
-    // setTimeout(function(){
-    //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);
-    //   $('.secret-card').html(defaultString);
-    //   $('.cards').toggle('active');
-    // }, 1000);
-  // };  
-
-  // GOING TO SWAP OUT THE CHECK BUTTON FOR A NEXT BUTTON TO TRIGGER THE FLIPBACK EVENT
-
-  // checkAnswer(secretCard, answer) {
-  // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER
+    // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER
+    // checkAnswer(); should be here, and should be called from end of makeSelection();
+    
     if (answer === secretCard.name){
-      // flip card
+      // flip secret card
       let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
       $('.secret-card').html(htmlString);
-      // end flip card
-
+      // end flip secret card
+      
       score++;
       $("span.theScore").text("0" + score);
       alert('*** CORRECT ***');
       
+      // flip Check to Next
+      let nextString = (`<button id="next" class="btn get-next active">Next &#9658;</button>`);
+      $('.show-secret-card').html(nextString);
+      // end flip Check to Next
+      $('.cards').toggle('active');
+      // console.log('Cards have been toggled');
       // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
       
     } else {
-      // flip card
+      // flip secret card
       let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
       $('.secret-card').html(htmlString);
-      // end flip card
+      // end flip secret card
       alert('*** WRONG ***');
-
+      
+      // flip Check to Next
+      let nextString = (`<button id="next" class="btn get-next active">Next &#9658;</button>`);
+      $('.show-secret-card').html(nextString);
+      // end flip Check to Next
+      $('.cards').toggle('active');
+      // console.log('Cards have been toggled');
       // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
     };
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
-
+    
     this.gameOver();
   };
   
-  // showSecretCard(){
-  // USE THIS TO FLIP THE CARD AND SHOW IT TO THE USER
-  // };
-
   gameOver(){
     if(turns === 10) {
       $('div.show-secret-card').toggleClass('ignore');
@@ -104,5 +103,10 @@ class ESPquiz{
   }
   
 };
-
-
+  
+  
+  // setTimeout(function(){
+  //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);
+  //   $('.secret-card').html(defaultString);
+  //   $('.cards').toggle('active');
+  // }, 1000);
