@@ -7,11 +7,13 @@ class ESPquiz{
   
   startGame() {
     $('#play-button').toggle('active');
+    console.log('Play button hidden');
     $('.show-secret-card').toggle('active');
     $('.show-selected-card').toggle('active');
-    console.log('Play button hidden');
+
     let turnsRemaining = 10;
     console.log(`Turns remaining = ${turnsRemaining}`);
+
     let score = 0;
     console.log(`Score = ${score}`);
     $('div.cards').removeClass('ignore'); 
@@ -24,11 +26,8 @@ class ESPquiz{
     console.log(cards);
   };
   
-  // makeSelection() {
-    // got moved to the main.js file, but should be here
-  // };
-
-  checkAnswer() {
+  // MOVING THIS OUT OF checkAnswer(); TO DRAW A CARD FROM THE SECRET CARDS PILE
+  drawSecretCard() {
     let index = Math.floor(Math.random()*this.cards.length);
     let secretCard = this.cards[index];
     console.log(this);
@@ -36,13 +35,30 @@ class ESPquiz{
 
     this.secretCards.push(secretCard.name);
     console.log(this.secretCards);
+  };
 
-    turns++;
-    console.log(`# turns played: ${turns}`);
-
-    // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER
-    // checkAnswer(); should be here, and should be called from end of makeSelection();
+  makeSelection() {  
+    answer = $(this).children().attr('id');
+    console.log(this);
+    console.log($(this).children().attr('id'));
+    console.log(answer);
     
+    let flipString = (`<img src="images/${answer}.png" alt="${answer}">`);
+    $('.show-selected-card').html(flipString);
+    console.log(`${flipString} has been flipped`);
+
+    $('.show-secret-card').toggle('active');      
+    console.log('show-secret-card has been toggled');
+
+    $('.show-selected-card').toggle('active');
+    console.log('show-selected-card has been toggled');
+
+    $('.cards').toggle('active');
+    console.log('Cards have been toggled');
+  };
+  
+  checkAnswer() {
+    // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER  
     if (answer === secretCard.name){
       // flip secret card
       let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
@@ -78,6 +94,8 @@ class ESPquiz{
       // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
     };
+    turns++;
+    console.log(`# turns played: ${turns}`);
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
     
