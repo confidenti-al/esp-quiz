@@ -45,6 +45,9 @@ var cards = [
     espQuiz.drawSecretCard();
     
   $('.selection').click(function(){
+    answer = $(this).children().attr('id');
+    console.log($(this).children().attr('id'));
+    console.log(answer);
     espQuiz.makeSelection();
     console.log("Selection has been made")
   });

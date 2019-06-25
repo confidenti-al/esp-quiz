@@ -2,6 +2,7 @@ class ESPquiz{
   constructor(cards){
     this.cards = cards;
     this.secretCards = [];
+    // this.secretCard;
     // this.answer = '';
   };
   
@@ -29,20 +30,15 @@ class ESPquiz{
   // MOVING THIS OUT OF checkAnswer(); TO DRAW A CARD FROM THE SECRET CARDS PILE
   drawSecretCard() {
     let index = Math.floor(Math.random()*this.cards.length);
-    let secretCard = this.cards[index];
+    this.secretCard = this.cards[index];
     console.log(this);
-    console.log(`The secret card is a ${secretCard.name} at position ${index}`);
+    console.log(`The secret card is a ${this.secretCard.name} at position ${index}`);
 
-    this.secretCards.push(secretCard.name);
+    this.secretCards.push(this.secretCard.name);
     console.log(this.secretCards);
   };
 
   makeSelection() {  
-    answer = $(this).children().attr('id');
-    console.log(this);
-    console.log($(this).children().attr('id'));
-    console.log(answer);
-    
     let flipString = (`<img src="images/${answer}.png" alt="${answer}">`);
     $('.show-selected-card').html(flipString);
     console.log(`${flipString} has been flipped`);
@@ -55,22 +51,26 @@ class ESPquiz{
 
     $('.cards').toggle('active');
     console.log('Cards have been toggled');
+
+    $('.instructions').toggle('active');
+    console.log('Instructions have been toggled');
   };
   
   checkAnswer() {
     // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER  
-    if (answer === secretCard.name){
+    if (answer === this.secretCard.name){
       // flip secret card
-      let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
+      let htmlString = (`<img src="${this.secretCard.img}" alt="${this.secretCard.name}">`);
       $('.secret-card').html(htmlString);
       // end flip secret card
       
       score++;
       $("span.theScore").text("0" + score);
-      alert('*** CORRECT ***');
+      
+      // alert('*** CORRECT ***');
       
       // flip Check to Next
-      let nextString = (`<button id="next" class="btn get-next active">Next &#9658;</button>`);
+      let nextString = (`<button id="next" class="btn get-next active">CORRECT! &#9658;</button>`);
       $('.show-secret-card').html(nextString);
       // end flip Check to Next
       $('.cards').toggle('active');
@@ -80,13 +80,14 @@ class ESPquiz{
       
     } else {
       // flip secret card
-      let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
+      let htmlString = (`<img src="${this.secretCard.img}" alt="${this.secretCard.name}">`);
       $('.secret-card').html(htmlString);
       // end flip secret card
-      alert('*** WRONG ***');
+
+      // alert('*** WRONG ***');
       
       // flip Check to Next
-      let nextString = (`<button id="next" class="btn get-next active">Next &#9658;</button>`);
+      let nextString = (`<button id="next" class="btn get-next active">WRONG! &#9658;</button>`);
       $('.show-secret-card').html(nextString);
       // end flip Check to Next
       $('.cards').toggle('active');

@@ -18,24 +18,26 @@
     <!-- start game button-->
     <div class="flex-center">
       <div id="new-game">
-        <button id="play-button" class="active">PLAY</button>
+        <button id="play-button" class="active">&#9658;</button>
       </div>
     </div>
   </div>
-  
+
   <!-- random cards display area -->
   <div class="flex-next">
     <div class="show-selected-card active">
       <img src="images/square.png" alt="Select a Card Below">
     </div>
     <div class="show-secret-card active ignore">
-      <button id="check" class="btn check-answer active">Check &#9658;</button> 
+      <button id="check" class="btn check-answer active">CHECK</button> 
     </div>
     <div id="secret-card" class="secret-card">
       <img src="images/ironhack-deck.png" alt="">
     </div>
   </div>
   
+  <div class="instructions active"><h2>CHOOSE A CARD</h2></div>
+
   <!-- answer cards display area -->
   <div class="flex-center">
     <button class="btn selection active">
@@ -55,10 +57,8 @@
     </button>
   </div>
 
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> -->
   <script type="text/javascript" src="src/main.js"></script>
   <script type="text/javascript" src="src/esp.js"></script>
   
