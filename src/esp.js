@@ -15,7 +15,6 @@ class ESPquiz{
     console.log(`Turns remaining = ${turnsRemaining}`);
     let score = 0;
     console.log(`Score = ${score}`);
-    // THIS NEEDS TO BE MOVED SO THAT THE FIRST STEP OF GAMEPLAY IS SELECTING AN ANSWER
     $('div.cards').removeClass('ignore'); 
     $('div.show-secret-card').removeClass('ignore');   
   };
@@ -41,41 +40,44 @@ class ESPquiz{
 
     turns++;
     console.log(`# turns played: ${turns}`);
+
+    // setTimeout(function(){
+    //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);
+    //   $('.secret-card').html(defaultString);
+    //   $('.cards').toggle('active');
+    // }, 1000);
   // };  
+
+  // GOING TO SWAP OUT THE CHECK BUTTON FOR A NEXT BUTTON TO TRIGGER THE FLIPBACK EVENT
 
   // checkAnswer(secretCard, answer) {
   // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER
     if (answer === secretCard.name){
-      alert('*** CORRECT ***');
-      score++;
-      $("span.theScore").text("0" + score);
-      $('.cards').toggle('active');
-
-      // $('.show-secret-card').toggle('active');
-      
       // flip card
       let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
       $('.secret-card').html(htmlString);
       // end flip card
 
+      score++;
+      $("span.theScore").text("0" + score);
+      alert('*** CORRECT ***');
+      
+      // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
       
     } else {
-      alert('*** WRONG ***');
-      $('.cards').toggle('active');
-
-      // $('.show-secret-card').toggle('active');
-      
       // flip card
       let htmlString = (`<img src="${secretCard.img}" alt="${secretCard.name}">`);
       $('.secret-card').html(htmlString);
       // end flip card
-      
+      alert('*** WRONG ***');
+
+      // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
     };
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
-    
+
     this.gameOver();
   };
   
