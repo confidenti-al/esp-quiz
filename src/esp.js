@@ -13,6 +13,7 @@ class ESPquiz{
     console.log('Continue button hidden');
     $('.show-selected-card').toggle('active');
     $('.show-secret-card').toggle('active');
+    $('.msgs').toggle('active');
 
     let turnsRemaining = 10;
     console.log(`Turns remaining = ${turnsRemaining}`);
@@ -81,31 +82,29 @@ class ESPquiz{
       // increment score      
       score++;
       $("span.theScore").text("0" + score);      
-      // flip Check to CORRECT/INCORRECT
-      // let nextString = (`<button id="next" class="btn get-next active">CORRECT! &#9658;</button>`);
-      // $('.show-secret-card').html(nextString);
-      // console.log('CHECK ANSWER NEXTSTRING BUTTON FLIP HAS RUN');
-      alert('CORRECT!!')
+      
+      // CORRECT/INCORRECT MSGS
+      let msgString = (`<h1>YOU'RE AMAZING!!</h1>`);
+      
+      $('.msgs').html(msgString);
       
     } else {
       // flip Secret Card
       let htmlString = (`<img src="${this.secretCard.img}" alt="${this.secretCard.name}">`);
       $('.secret-card').html(htmlString);
-      // flip Check to CORRECT/INCORRECT
-      // let nextString = (`<button id="next" class="btn get-next active">INCORRECT! &#9658;</button>`);
-      // $('.show-secret-card').html(nextString);
-      // console.log('CHECK ANSWER NEXTSTRING BUTTON FLIP HAS RUN');
-      alert('INCORRECT!!');
+      
+      // CORRECT/INCORRECT MSGS
+      let msgString = (`<h1>BETTER LUCK NEXT TIME...</h1>`);
+      $('.msgs').html(msgString);
     };
+    
     $('#continue-button').toggle('active');
     console.log('Continue button hidden');
-    // $('.cards').toggle('active');
-    // console.log('Cards have been toggled');
-    // $('.show-secret-card').toggle('active');
-    // console.log('Selected card has toggled AGAIN')
-    // $('.show-selected-card').toggle('active');
-    // console.log('Check button has toggled AGAIN')
-    
+    // add ignore class to check button 
+    $('div.show-secret-card').addClass('ignore');   
+    console.log('ADDED class IGNORE to SHOW SECRET div');
+    $('div.show-secret-card').hide();
+
     // increment turns
     turns++;
     console.log(`# turns played: ${turns}`);
@@ -120,12 +119,14 @@ class ESPquiz{
     if(turns === 10) {
       $('div.show-secret-card').toggleClass('ignore');
       $('div.cards').toggleClass('ignore');
-      alert('Game Over!');
+      
       $("span.theScore").text('00');
       this.secretCards = this.clearSecretCards();
       $('#play-button').toggle('active');
       $('.show-secret-card').toggle('active');
-      $('.show-selected-card').toggle('active');
+    setTimeout(function(){
+      if(!alert('GAME OVER! Play again?')){window.location.reload();}
+    }, 1000);
     }
     return true;
   }

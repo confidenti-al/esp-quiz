@@ -45,6 +45,8 @@ var cards = [
     $('#continue-button').click(function(){
       $('#continue-button').toggle('active');
       console.log('Continue button hidden');
+      $('.msgs').toggle('active');
+      $('div.show-secret-card').show();
     espQuiz.drawSecretCard();
     });
 
@@ -53,10 +55,13 @@ var cards = [
     // console.log($(this).children().attr('id'));
     // console.log(answer);
     console.log(this);
-    espQuiz.makeSelection();  
+    espQuiz.makeSelection();
+    $('div.show-secret-card').removeClass('ignore');
     });
   
-  $('.show-secret-card').click(function(){ 
+  $('.show-secret-card').click(function(){
+    $('.msgs').toggle('active');
+
     espQuiz.checkAnswer(); // also checks if gameOver();
   });
   
