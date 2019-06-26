@@ -34,32 +34,31 @@ var cards = [
     let turns = 0;
     let score = 0;
     let answer = '';
-    // let ind = [0,1,2,3,4];
 
   
   $('#play-button').click(function(){
     let espQuiz = new ESPquiz(cards);
     espQuiz.startGame();
     espQuiz.randomizeCards();
-    // SEPARATED OUT TO DRAW THE FIRST CARD BEFORE MAKING MY FIRST ANSWER SELECTION
     espQuiz.drawSecretCard();
     
-  $('.selection').click(function(){
+  $('.selection').click(function(){    // ON CLICK WILL SWAP CLASS ON THE BUTTON TO GET-NEXT
     answer = $(this).children().attr('id');
-    console.log($(this).children().attr('id'));
-    console.log(answer);
+    // console.log($(this).children().attr('id'));
+    // console.log(answer);
+    console.log(this);
     espQuiz.makeSelection();
-    console.log("Selection has been made")
   });
   
-  $('.show-secret-card').click(function(){
+  $('.show-secret-card').click(function(){ // ***PROBLEM*** THiS IS LISTENING FOR THE DIV CLASS, NOT BUTTON
     espQuiz.checkAnswer(); // also checks if gameOver();
   });
   
     // IF NOT FIRST ROUND, RUN BELOW
-    // this is where the listener for the get-next button should trigger
+    // this is where the listener for the get-next [NEEDS DIFFERENT CLASS] button should trigger
     // hiding the big cards and showing the selection cards buttons
-  $('.get-next').click(function(){
+  $('.center-button').click(function(){
+    alert('Center button onclick event has fired!');
     espQuiz.drawSecretCard();
   });
   

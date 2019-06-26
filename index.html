@@ -28,8 +28,10 @@
     <div class="show-selected-card active">
       <img src="images/square.png" alt="Select a Card Below">
     </div>
-    <div class="show-secret-card active ignore">
-      <button id="check" class="btn check-answer active">CHECK</button> 
+    <div class="center-button">
+      <div class="show-secret-card active ignore"> <!------------- [THIS IS WHERE THE PROBLEM IS HAPPENING] -->
+        <button id="check" class="btn check-answer active">CHECK</button> 
+      </div>
     </div>
     <div id="secret-card" class="secret-card">
       <img src="images/ironhack-deck.png" alt="">
@@ -39,7 +41,7 @@
   <div class="instructions active"><h2>CHOOSE A CARD</h2></div>
 
   <!-- answer cards display area -->
-  <div class="flex-center">
+  <div class="flex-center ignore">
     <button class="btn selection active">
       <img id="circle" class="cards" src="images/circle.png">
     </button>

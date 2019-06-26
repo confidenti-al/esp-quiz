@@ -9,16 +9,18 @@ class ESPquiz{
   startGame() {
     $('#play-button').toggle('active');
     console.log('Play button hidden');
-    $('.show-secret-card').toggle('active');
     $('.show-selected-card').toggle('active');
+    $('.show-secret-card').toggle('active');
 
     let turnsRemaining = 10;
     console.log(`Turns remaining = ${turnsRemaining}`);
 
     let score = 0;
     console.log(`Score = ${score}`);
-    $('div.cards').removeClass('ignore'); 
+    $('div.flex-center').removeClass('ignore');
+    console.log('REMOVED class IGNORE from CARDS div');
     $('div.show-secret-card').removeClass('ignore');   
+    console.log('REMOVED class IGNORE from CENTER BUTTON div');
   };
 
   randomizeCards() {
@@ -29,13 +31,19 @@ class ESPquiz{
   
   // MOVING THIS OUT OF checkAnswer(); TO DRAW A CARD FROM THE SECRET CARDS PILE
   drawSecretCard() {
-    if (turns = 0){
+    if (turns != 0){
       $('.cards').toggle('active');
-      console.log('Cards have been toggled');
-      $('.show-secret-card').toggle('active');
-      console.log('Selected card has toggled')
-      $('.show-selected-card').toggle('active');
-      console.log('Check button has toggled')
+      console.log('Cards have been toggled AGAIN');
+      $('div.flex-center').addClass('ignore'); 
+      console.log('Class IGNORE added to cards div');
+      // $('.show-secret-card').toggle('active');
+      // console.log('Selected card has toggled AGAIN')
+      // $('.show-selected-card').toggle('active');
+      // console.log('Check button has toggled AGAIN')
+      // let deckString = (`<img src="images/ironhack-deck.png" alt="">`);
+      // $('.secret-card').html(deckString);
+      // console.log('DECK HAS BEEN RESET!!');
+  // SOMETHING NEEDS TO GO HERE TO REMOVE THE CARDS IGNORE!!!!
     };
     let index = Math.floor(Math.random()*this.cards.length);
     this.secretCard = this.cards[index];
@@ -47,6 +55,7 @@ class ESPquiz{
   };
 
   makeSelection() {  
+    console.log('Selection has been made');
     let flipString = (`<img src="images/${answer}.png" alt="${answer}">`);
     $('.show-selected-card').html(flipString);
     console.log(`${flipString} has been flipped`);
@@ -65,41 +74,36 @@ class ESPquiz{
   };
   
   checkAnswer() {
-    // CHECK IF CORRECT, INCREMENT SCORE, CHECK IF GAME OVER  
+    // CHECK IF CORRECT, INCREMENT SCORE, FLIP CARDS, CHECK IF GAME OVER  
     if (answer === this.secretCard.name){
-      // flip secret card
+      // flip Secret Card
       let htmlString = (`<img src="${this.secretCard.img}" alt="${this.secretCard.name}">`);
       $('.secret-card').html(htmlString);
-      // end flip secret card
-      
+      // increment score      
       score++;
-      $("span.theScore").text("0" + score);
-      
-      // alert('*** CORRECT ***');
-      
+      $("span.theScore").text("0" + score);      
       // flip Check to Next
-      let nextString = (`<button id="next" class="btn get-next active">CORRECT! &#9658;</button>`);
-      $('.show-secret-card').html(nextString);            //  ^ INSERT NEW CLASS FOR NEW 
-      // end flip Check to Next                           //    EVENT LISTENER ACTION TO
-                                                          //    TRIGGER PROPER TOGGLING
+      let nextString = (`<div class="show-secret-card active"><button id="next" class="btn get-next active">CORRECT! &#9658;</button></div>`);
+      $('.center-button').html(nextString);            //  ^ INSERT NEW CLASS FOR NEW 
+//  EVENT LISTENER ACTION TO TRIGGER PROPER TOGGLING MIGHT NEED TO REMOVE THE GET-NEXT CLASS, AS WELL
       
     } else {
-      // flip secret card
+      // flip Secret Card
       let htmlString = (`<img src="${this.secretCard.img}" alt="${this.secretCard.name}">`);
       $('.secret-card').html(htmlString);
-      // end flip secret card
-
-      // alert('*** WRONG ***');
-      
       // flip Check to Next
-      let nextString = (`<button id="next" class="btn get-next active">INCORRECT! &#9658;</button>`);
+      let nextString = (`<div class="show-secret-card active"><button id="next" class="btn get-next active">INCORRECT! &#9658;</button></div>`);
       $('.show-secret-card').html(nextString);            //  ^ INSERT NEW CLASS FOR NEW
-      // end flip Check to Next                           //    EVENT LISTENER ACTION TO
-      $('.cards').toggle('active');                       //    TRIGGER PROPER TOGGLING
-      // console.log('Cards have been toggled');
-      // $('.show-secret-card').toggle('active');
-      // $('.show-selected-card').toggle('active');
-    };
+//  EVENT LISTENER ACTION TO TRIGGER PROPER TOGGLING MIGHT NEED TO REMOVE THE GET-NEXT CLASS, AS WELL
+     };
+    // $('.cards').toggle('active');
+    // console.log('Cards have been toggled');
+    // $('.show-secret-card').toggle('active');
+    // console.log('Selected card has toggled AGAIN')
+    // $('.show-selected-card').toggle('active');
+    // console.log('Check button has toggled AGAIN')
+    
+    // increment turns
     turns++;
     console.log(`# turns played: ${turns}`);
     console.log(`Answer: ${answer}`);
@@ -130,7 +134,7 @@ class ESPquiz{
   
   
   // setTimeout(function(){
-  //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);
+  //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);  <---------[***THIS***]
   //   $('.secret-card').html(defaultString);
   //   $('.cards').toggle('active');
   // }, 1000);
