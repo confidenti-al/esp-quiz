@@ -21,6 +21,7 @@ class ESPquiz{
 
     let score = 0;
     console.log(`Score = ${score}`);
+    // $("span.theScore").text('00');
     $('div.flex-center').removeClass('ignore');
     console.log('REMOVED class IGNORE from CARDS div');
     $('div.show-secret-card').removeClass('ignore');   
@@ -120,7 +121,7 @@ class ESPquiz{
       $('div.show-secret-card').toggleClass('ignore');
       $('div.cards').toggleClass('ignore');
       
-      $("span.theScore").text('00');
+      
       this.secretCards = this.clearSecretCards();
       $('#play-button').toggle('active');
       $('.show-secret-card').toggle('active');
