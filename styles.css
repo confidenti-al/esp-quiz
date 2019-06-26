@@ -26,9 +26,8 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-  margin: 100px 0 0 0;
+  margin: 50px 0 0 0;
   height: 330px;
-  /* border: 1px solid white; */
 }
 
 .score {
@@ -47,41 +46,35 @@ body {
   color: #32c3ff;
 }
 
-
-.msgs {
+/* .msgs {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  /* width: 100%; */
-  /* border: 1px solid white; */
-}
-.msgs h1 {
+} */
+
+/* .msgs h1 {
   font-family: 'Days One', sans-serif;
   font-size: 20px;
-  /* font-weight: bold; */
   letter-spacing: .2em;
   color: white;
   justify-content: center;
-}
+} */
 
-
-.instructions {
+/* .instructions {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  /* width: 100%; */
-  /* border: 1px solid white; */
-}
-.instructions h2 {
+} */
+
+/* .instructions h2 {
   font-family: 'Days One', sans-serif;
   font-size: 20px;
-  /* font-weight: bold; */
   letter-spacing: .2em;
   color: white;
   justify-content: center;
-}
+} */
 
 /* .stats {
   width: 100px;
@@ -102,13 +95,28 @@ body {
   letter-spacing: .2em;
 }
 
+#continue-button {
+  font-family: 'Days One', sans-serif;
+  border: 3px solid white;
+  box-shadow: 0;
+  background-color: #08274a;
+  color: #32c3ff;
+  padding: 10px 10px 10px 30px;
+  margin: 0 auto;
+  font-size: 40px;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bolder;
+  letter-spacing: .2em;
+}
+
 .check-answer, .get-next {
   font-family: 'Days One', sans-serif;
   border: 3px solid white;
   box-shadow: 0;
   background-color: #08274a;
   color: #32c3ff;
-  padding: 10px 10px 10px 15px;
+  padding: 10px 20px 10px 30px;
   margin: 130px 0;
   font-size: 40px;
   border-radius: 10px;
