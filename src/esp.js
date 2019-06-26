@@ -29,6 +29,14 @@ class ESPquiz{
   
   // MOVING THIS OUT OF checkAnswer(); TO DRAW A CARD FROM THE SECRET CARDS PILE
   drawSecretCard() {
+    if (turns = 0){
+      $('.cards').toggle('active');
+      console.log('Cards have been toggled');
+      $('.show-secret-card').toggle('active');
+      console.log('Selected card has toggled')
+      $('.show-selected-card').toggle('active');
+      console.log('Check button has toggled')
+    };
     let index = Math.floor(Math.random()*this.cards.length);
     this.secretCard = this.cards[index];
     console.log(this);
@@ -71,12 +79,9 @@ class ESPquiz{
       
       // flip Check to Next
       let nextString = (`<button id="next" class="btn get-next active">CORRECT! &#9658;</button>`);
-      $('.show-secret-card').html(nextString);
-      // end flip Check to Next
-      $('.cards').toggle('active');
-      // console.log('Cards have been toggled');
-      // $('.show-secret-card').toggle('active');
-      // $('.show-selected-card').toggle('active');
+      $('.show-secret-card').html(nextString);            //  ^ INSERT NEW CLASS FOR NEW 
+      // end flip Check to Next                           //    EVENT LISTENER ACTION TO
+                                                          //    TRIGGER PROPER TOGGLING
       
     } else {
       // flip secret card
@@ -87,10 +92,10 @@ class ESPquiz{
       // alert('*** WRONG ***');
       
       // flip Check to Next
-      let nextString = (`<button id="next" class="btn get-next active">WRONG! &#9658;</button>`);
-      $('.show-secret-card').html(nextString);
-      // end flip Check to Next
-      $('.cards').toggle('active');
+      let nextString = (`<button id="next" class="btn get-next active">INCORRECT! &#9658;</button>`);
+      $('.show-secret-card').html(nextString);            //  ^ INSERT NEW CLASS FOR NEW
+      // end flip Check to Next                           //    EVENT LISTENER ACTION TO
+      $('.cards').toggle('active');                       //    TRIGGER PROPER TOGGLING
       // console.log('Cards have been toggled');
       // $('.show-secret-card').toggle('active');
       // $('.show-selected-card').toggle('active');
