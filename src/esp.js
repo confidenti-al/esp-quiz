@@ -85,7 +85,7 @@ class ESPquiz{
       $("span.theScore").text("0" + score);      
       
       // CORRECT/INCORRECT MSGS
-      let msgString = (`<h1>YOU'RE AMAZING!!</h1>`);
+      let msgString = (`<img src="images/force-is-strong.gif">`);
       
       $('.msgs').html(msgString);
       
@@ -108,7 +108,9 @@ class ESPquiz{
 
     // increment turns
     turns++;
+    // turnsRemaining--;
     console.log(`# turns played: ${turns}`);
+    // console.log(`# turns remaining: ${turnsRemaining}`);
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
 
@@ -127,7 +129,7 @@ class ESPquiz{
       $('.show-secret-card').toggle('active');
     setTimeout(function(){
       if(!alert('GAME OVER! Play again?')){window.location.reload();}
-    }, 1000);
+    }, 500);
     }
     return true;
   }
@@ -137,10 +139,3 @@ class ESPquiz{
   }
   
 };
-  
-  
-  // setTimeout(function(){
-  //   defaultString = (`<img src="../images/ironhack-deck.png" alt="">`);  <---------[***THIS***]
-  //   $('.secret-card').html(defaultString);
-  //   $('.cards').toggle('active');
-  // }, 1000);
