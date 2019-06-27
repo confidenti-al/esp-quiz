@@ -34,6 +34,7 @@ var cards = [
     let turns = 0;
     let score = 0;
     let answer = '';
+    let turnsRemaining = 10;
 
   
   $('#play-button').click(function(){

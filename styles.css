@@ -63,6 +63,12 @@ body {
   padding: 30px;
 }
 
+.turns-left {
+  font-size: 10px;
+  letter-spacing: .2em;
+  font-weight: bolder;
+  color: white;
+}
 
 /* .instructions {
   display: flex;

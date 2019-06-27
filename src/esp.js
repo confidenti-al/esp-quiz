@@ -2,6 +2,7 @@ class ESPquiz{
   constructor(cards){
     this.cards = cards;
     this.secretCards = [];
+    this.turnsRemaining = 10;
     // this.secretCard;
     // this.answer = '';
   };
@@ -35,6 +36,13 @@ class ESPquiz{
   };
   
   drawSecretCard() {
+    if (this.turnsRemaining === 10) {
+      $("span.turnsLeft").text(this.turnsRemaining);
+    } else {
+      $("span.turnsLeft").text("0" + this.turnsRemaining);
+    };
+    console.log(this.turnsRemaining);
+    
     if (turns !== 0){
       console.log('drawSecretCard(); !== 0 is running');
       $('.cards').toggle('active');
@@ -82,7 +90,7 @@ class ESPquiz{
       $('.secret-card').html(htmlString);
       // increment score      
       score++;
-      $("span.theScore").text("0" + score);      
+      $("span.theScore").text("0" + score);     
       
       // CORRECT/INCORRECT MSGS
       let msgString = (`<img src="images/force-is-strong.gif">`);
@@ -108,13 +116,11 @@ class ESPquiz{
 
     // increment turns
     turns++;
-    // turnsRemaining--;
     console.log(`# turns played: ${turns}`);
-    // console.log(`# turns remaining: ${turnsRemaining}`);
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
-
-    
+    this.turnsRemaining--;
+  
     this.gameOver();
   };
   
@@ -122,6 +128,7 @@ class ESPquiz{
     if(turns === 10) {
       $('div.show-secret-card').toggleClass('ignore');
       $('div.cards').toggleClass('ignore');
+      $("span.turnsLeft").text("00");
       
       
       this.secretCards = this.clearSecretCards();
