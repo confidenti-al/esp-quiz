@@ -120,7 +120,6 @@ class ESPquiz{
     console.log(`Answer: ${answer}`);
     console.log(`Score: ${score}`);
     this.turnsRemaining--;
-  
     this.gameOver();
   };
   
